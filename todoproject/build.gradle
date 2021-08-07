@@ -13,9 +13,9 @@ repositories {
 }
 
 dependencies {
-	implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
+	implementation 'org.springframework.boot:spring-boot-starter-data-jpa' /* JPA est une API tout comme JDBC pour permettre à Java d'interagir avec la base de données. */
 	implementation 'org.springframework.boot:spring-boot-starter-web'
-	runtimeOnly 'com.h2database:h2'
+	runtimeOnly 'com.h2database:h2'  /* La base de données que nous utiliserons est H2 qui est une base de données en mémoire. */
 	
 	testImplementation ('org.springframework.boot:spring-boot-starter-test') {
    exclude group: "junit", module: "junit"
@@ -25,7 +25,7 @@ testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.3.1'
 }
 
 test {
-   systemProperty 'spring.profiles.active', 'test'
+   systemProperty 'spring.profiles.active', 'test'   /* pour activer JUnit */
    useJUnitPlatform()
    reports {
       junitXml.enabled = true
