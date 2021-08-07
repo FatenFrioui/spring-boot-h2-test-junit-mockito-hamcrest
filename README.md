@@ -1,6 +1,6 @@
 # spring-boot-test
 
-[![forthebadge](http://forthebadge.com/images/badges/built-with-love.svg)](http://forthebadge.com)
+[![forthebadge](todoproject\src\main\resources\static\built-with-love.svg)](https://github.com/FatenFrioui)
 
 Bonjouuur, Je vais vous montrer comment créer un service RESTful simple à l'aide de Spring Boot tout en suivant TDD et en utilisant Junit 5.3.1. 
 
