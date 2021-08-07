@@ -79,5 +79,5 @@ GET Request → http://localhost:9092/todos/
 
 Maintenant, nous pouvons supprimer cette configuration CommandLineRunner d'Application.java, c'était juste pour obtenir quelques tâches en utilisant l'API que nous avons construite car cela entraînera l'échec des tests de service car la méthode de configuration ne peut pas obtenir une instance ToDoRepository lorsque nous exécutons un test suite annotée avec SpringBootTest.
 
-Donc, maintenant les étapes à suivre pour implémenter une API seront clairs. Écrivez un test de contrôleur où nous simulons le service, implémentons-le. Ecrivez un test de service où nous utilisons directement l'instance de référentiel, implémentez-le.
+=>Donc, maintenant les étapes à suivre pour implémenter une API seront clairs. Écrivez un test de contrôleur où nous simulons le service, implémentons-le. Ecrivez un test de service où nous utilisons directement l'instance de référentiel, implémentez-le.
 
