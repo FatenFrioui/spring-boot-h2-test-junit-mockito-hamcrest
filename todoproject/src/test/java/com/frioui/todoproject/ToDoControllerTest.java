@@ -1,39 +1,22 @@
 package com.frioui.todoproject;
 
-
-
-import org.junit.jupiter.api.Test;
-
-import org.junit.jupiter.api.extension.ExtendWith;
-
-import org.springframework.beans.factory.annotation.Autowired;
-
-import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
-
-import org.springframework.boot.test.mock.mockito.MockBean;
-
-import org.springframework.test.context.junit.jupiter.SpringExtension;
-
-import org.springframework.test.web.servlet.MockMvc;
-
-import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
-
-
-
-import static org.mockito.Mockito.when;
-
-import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.print;
-
-import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
-
 import java.util.ArrayList;
 import java.util.List;
 
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.ExtendWith;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
+import org.springframework.boot.test.mock.mockito.MockBean;
+import org.springframework.test.context.junit.jupiter.SpringExtension;
+import org.springframework.test.web.servlet.MockMvc;
+import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
+
+import static org.mockito.Mockito.when;
+import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.print;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
 import org.springframework.http.MediaType;
-
 import static org.hamcrest.Matchers.*;
-
-
 
 @ExtendWith(SpringExtension.class)
 @WebMvcTest
@@ -47,17 +30,13 @@ class ToDoControllerTest {
     
     @Test
     void getAllToDos() throws Exception {
-    	List<ToDo> toDoList = new ArrayList<ToDo>();
+        List<ToDo> toDoList = new ArrayList<ToDo>();
         toDoList.add(new ToDo(1L,"Eat thrice",true));
         toDoList.add(new ToDo(2L,"Sleep Twice",true));
-        when(toDoService.findAll()).thenReturn(toDoList);
+        when(toDoService.findAll()).thenReturn(toDoList); // si on appel todoservice findall() alors il appel les 2 todolist de test
 
         mockMvc.perform(MockMvcRequestBuilders.get("/todos")
-                .contentType(MediaType.APPLICATION_JSON)
-        ).andExpect(jsonPath("$", hasSize(2))).andDo(print());
-    } 
-    
+                .contentType(MediaType.APPLICATION_JSON)  //return erreur 500
+        ).andExpect(jsonPath("$", hasSize(2))).andDo(print()); // 2 car au simulation on a fait 2 champs, erreur faillures
+    }
 }
-
-
-

@@ -6,8 +6,20 @@ import java.util.List;
 import org.springframework.stereotype.Service;
 
 @Service
-class ToDoService {
-	public List<ToDo> findAll() {
-	    return new ArrayList<>();
-	}
+public class ToDoService {
+
+	private ToDoRepository toDoRepository;
+
+    public ToDoService(ToDoRepository toDoRepository) {
+        this.toDoRepository = toDoRepository;
+    }
+	
+    
+    public List<ToDo> findAll() {
+        return toDoRepository.findAll();
+    }
+	/* public List<ToDo> findAll() {
+	    return new ArrayList<>();  //vide
+	} */
 }
+
